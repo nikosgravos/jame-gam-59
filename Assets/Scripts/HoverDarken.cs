@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ClickHealth : MonoBehaviour
@@ -10,6 +12,14 @@ public class ClickHealth : MonoBehaviour
     [Header("Decoys at half way")]
     public GameObject decoyPrefab;
     public Transform[] spawnPoints;
+
+    [Header("The message hidden under the paint")]
+    [Tooltip("Sits in the picture all along, unreadable, until it turns red at the end. Sprite or text, either works.")]
+    public GameObject hiddenMessage;
+    public Color messageColor = new Color(0.3764706f, 0.08235294f, 0.05882353f, 1f);   // 60150F
+    public float messageFadeIn = 1.5f;
+    [Tooltip("Seconds the message sits there, once it's fully faded in, before the next challenge takes over.")]
+    public float messageHold = 3f;
 
     [Header("Flash when dark (so the player can glimpse the target)")]
     public bool flashWhenDark = true;
@@ -74,15 +84,46 @@ public class ClickHealth : MonoBehaviour
 
         Darken(1f - hoverTime / timeToKill);
 
-        if (hoverTime >= timeToKill)
-        {
-            if (nextChallenge == null)
-                Debug.LogWarning("ClickHealth: Next Challenge isn't assigned, so nothing appears after the fade.", this);
-            else
-                nextChallenge.SetActive(true);
+        if (hoverTime >= timeToKill) StartCoroutine(Win());
+    }
 
-            currentChallenge.SetActive(false);
+    /// <summary>
+    /// The picture is black. The message that was in it all along turns red, sits there a
+    /// moment, and then the next challenge takes over.
+    /// </summary>
+    IEnumerator Win()
+    {
+        if (hiddenMessage != null)
+        {
+            SpriteRenderer[] sprites = hiddenMessage.GetComponentsInChildren<SpriteRenderer>();
+            TMP_Text[] texts = hiddenMessage.GetComponentsInChildren<TMP_Text>();
+
+            // Fades from whatever colour it was hiding as, so it works however it's kept unreadable.
+            Color[] spriteFrom = new Color[sprites.Length];
+            Color[] textFrom = new Color[texts.Length];
+            for (int i = 0; i < sprites.Length; i++) spriteFrom[i] = sprites[i].color;
+            for (int i = 0; i < texts.Length; i++) textFrom[i] = texts[i].color;
+
+            for (float t = 0f; t < messageFadeIn; t += Time.deltaTime)
+            {
+                float k = t / messageFadeIn;
+                for (int i = 0; i < sprites.Length; i++) sprites[i].color = Color.Lerp(spriteFrom[i], messageColor, k);
+                for (int i = 0; i < texts.Length; i++) texts[i].color = Color.Lerp(textFrom[i], messageColor, k);
+                yield return null;
+            }
+
+            foreach (SpriteRenderer sr in sprites) sr.color = messageColor;
+            foreach (TMP_Text text in texts) text.color = messageColor;
+
+            yield return new WaitForSeconds(messageHold);
         }
+
+        if (nextChallenge == null)
+            Debug.LogWarning("ClickHealth: Next Challenge isn't assigned, so nothing appears after the fade.", this);
+        else
+            nextChallenge.SetActive(true);
+
+        currentChallenge.SetActive(false);
     }
 
     void SpawnDecoys()
