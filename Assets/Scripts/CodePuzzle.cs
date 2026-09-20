@@ -54,6 +54,10 @@ public class CodePuzzle : MonoBehaviour
     public Color buttonColor = new Color(0.72f, 0.64f, 0.48f, 1f);
     public Color wrongColor = new Color(0.76f, 0.24f, 0.18f, 1f);
 
+    [Header("Layering")]
+    [Tooltip("Above the painting but below the book, so an open book covers the puzzle.")]
+    public int sortingOrder = 1;
+
     [Header("When it's right")]
     [Tooltip("Seconds the whole scene takes to fade down to black.")]
     public float fadeToBlack = 2.5f;
@@ -238,7 +242,7 @@ public class CodePuzzle : MonoBehaviour
         t.color = color;
         t.alignment = TextAlignmentOptions.Baseline;      // centred across, sitting on the baseline
         t.text = content;
-        t.sortingOrder = 4;
+        t.sortingOrder = sortingOrder;
         t.rectTransform.sizeDelta = new Vector2(Mathf.Max(size, 1f), Mathf.Max(size, 1f));
         t.rectTransform.localPosition = localPos;
         return t;
@@ -292,7 +296,7 @@ public class CodePuzzle : MonoBehaviour
 
         SpriteRenderer sr = go.AddComponent<SpriteRenderer>();
         sr.sprite = sprite;
-        sr.sortingOrder = 3;
+        sr.sortingOrder = sortingOrder;
         return sr;
     }
 
