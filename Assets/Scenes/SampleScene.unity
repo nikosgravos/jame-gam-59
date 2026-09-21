@@ -2241,37 +2241,37 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'THE GARDEN REMEMBERED IT.
 
-    
+
 
     THE FALL REMEMBERED IT.
 
-    
+
 
     THE TALE REMEMBERED IT.
 
-    
+
 
     EVERYWHERE AN APPLE WAS REMEMBERED,
 
     THE SAME RED SHAPE APPEARED IN ITS PLACE.
 
-    
+
 
     YOU HAVE SEEN THE PATTERN.
 
-    
+
 
     BUT YOU MISUNDERSTOOD ITS PURPOSE.
 
-    
+
 
     IT WAS NEVER TRYING TO REPLACE THE APPLE.
 
-    
+
 
     IT WAS TRYING TO ERASE IT.
 
-    
+
 
     <b>PIECE TOGETHER ALL YOU REMEMBER.</b>'
   m_isRightToLeft: 0
@@ -2596,19 +2596,19 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'ANOTHER TALE REMEMBERS A POISONED APPLE.
 
-    
+
 
     THE APPLE NEVER ARRIVED.
 
-    
+
 
     THE SAME RED FRUIT APPEARED IN ITS PLACE.
 
-    
+
 
     THE PATTERN IS NO COINCIDENCE.
 
-    
+
 
     <b>IT HAS FOLLOWED THE APPLES THROUGH HISTORY, TAKING THEIR PLACE WHEREVER ITS NAME WAS MEANT TO BE REMEMBERED.</b>'
   m_isRightToLeft: 0
@@ -5212,41 +5212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d92c1e74ab30f84b96e2a7c08f5d413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BookPopup
-  bookSprite: {fileID: 0}
-  bookHeight: 6
-  prompt: 
-  font: {fileID: 0}
-  textOffset: {x: -0.215, y: 0}
-  textArea: {x: 0.33, y: 0.62}
-  letterHeight: 0.18
-  textColor:
-    r: 0.3764706
-    g: 0.08235294
-    b: 0.05882353
-    a: 1
-  buttonSprite: {fileID: 0}
-  buttonHeight: 0.75
-  buttonOffset: {x: -0.7, y: -0.7}
-  buttonColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 1
-  buttonHoverColor:
-    r: 1
-    g: 0.87
-    b: 0.6
-    a: 1
-  sortingOrder: 50
-  pauseWhileOpen: []
-  overlay: {fileID: 0}
-  book: {fileID: 0}
-  buttonIcon: {fileID: 0}
-  bookSize: {x: 0, y: 0}
-  buttonSize: {x: 0, y: 0}
-  open: 0
-  hovering: 0
-  cam: {fileID: 0}
 --- !u!114 &2129290527
 MonoBehaviour:
   m_ObjectHideFlags: 0
