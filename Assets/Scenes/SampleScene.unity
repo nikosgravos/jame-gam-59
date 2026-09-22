@@ -4897,15 +4897,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262e37857ddae0b41a48751da4296b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ErraticMover
-  baseSpeed: 8
-  dashSpeed: 24
-  acceleration: 45
+  baseSpeed: 6
+  dashSpeed: 10
+  acceleration: 40
   pulseAmount: 0.3
   pulseRate: 3
   startSpeedScale: 0.25
-  endSpeedScale: 0.7
+  endSpeedScale: 0.5
   rampTime: 30
-  wanderTurnSpeed: 180
+  wanderTurnSpeed: 150
   noiseScale: 1.5
   curveTurnSpeed: 220
   wanderTime: {x: 0.6, y: 1.6}
@@ -5064,7 +5064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82666fd78463de4488a1ebad95f10483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickHealth
-  timeToKill: 10
+  timeToKill: 12
   currentChallenge: {fileID: 1995265905}
   nextChallenge: {fileID: 827562155}
   decoyPrefab: {fileID: 4210949266841745748, guid: 36336c255ff4deb43917cc352b70d1ec, type: 3}
@@ -5077,8 +5077,8 @@ MonoBehaviour:
   messageHold: 3
   flashWhenDark: 1
   darkThreshold: 0.15
-  flashInterval: 2
-  flashDuration: 0.5
+  flashInterval: 3
+  flashDuration: 1.5
 --- !u!50 &2040434813
 Rigidbody2D:
   serializedVersion: 5
