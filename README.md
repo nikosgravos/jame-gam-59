@@ -14,6 +14,7 @@ You'll solve puzzles, decrypt cryptograms, crack codes, and slowly reconstruct t
 
 Made for **[Mini Jame Gam #59](https://itch.io/jam/mini-jame-gam-59)**
 
+- **Results:** Ranked 14th out of 120 entries
 - **Theme:** Immortal
 - **Special Object:** Tomato
 - **Duration:** Built in 2 days
